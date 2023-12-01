@@ -1,5 +1,56 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function CreateUser() {
-  return <div>CreateUser</div>;
+  const [details, setDetails] = useState({});
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(details);
+  };
+  const handleChange = (e) => {
+    setDetails({
+      ...details,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  return (
+    <div>
+      <h1>CreateUser</h1>
+      <form onSubmit={handleSubmit}>
+        <table cellSpacing={10}>
+          <tbody>
+            <tr>
+              <th>
+                <label>Name:</label>
+              </th>
+              <td>
+                <input type="text" name="name" onChange={handleChange} />
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <label>Email:</label>
+              </th>
+              <td>
+                <input type="email" name="email" onChange={handleChange} />
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <label>Mobile:</label>
+              </th>
+              <td>
+                <input type="number" name="mobile" onChange={handleChange} />
+              </td>
+            </tr>
+            <tr>
+              <td align="right" colSpan={2}>
+                <button type="submit">Save</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  );
 }

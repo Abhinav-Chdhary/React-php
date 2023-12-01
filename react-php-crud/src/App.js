@@ -1,6 +1,8 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import ListUser from "./components/ListUser";
+import CreateUser from "./components/CreateUser";
+import EditUser from "./components/EditUser";
 import "./App.css";
 
 export default function App() {
@@ -20,6 +22,8 @@ export default function App() {
         </nav>
         <Routes>
           <Route exact path="/" element={<ListUser />} />
+          <Route exact path="user/create" element={<CreateUser />} />
+          <Route exact path="user/:id/edit" element={<EditUser />} />
         </Routes>
       </BrowserRouter>
     </div>
