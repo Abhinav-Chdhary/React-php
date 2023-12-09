@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 export default function CreateUser() {
   const [details, setDetails] = useState({});
   const handleSubmit = (e) => {
     e.preventDefault();
+    axios.post("http://localhost:8888/api/user/save", details);
     console.log(details);
   };
   const handleChange = (e) => {
